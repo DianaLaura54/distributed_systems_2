@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  person-service:
+    image: image2
+    ports:
+      - "8081:8081"
+    environment:
+      - DB_IP=host.docker.internal
+    networks:
+      demo_net:
+        aliases:
+          - device-service
+
+networks:
+  demo_net:
+    external: true
